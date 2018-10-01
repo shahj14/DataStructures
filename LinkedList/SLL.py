@@ -11,33 +11,38 @@ class LinkedList:
 	def addFirst(self, data):
 		node = Node(data, self.head)
 		self.head = node
-		return self.head
 
 	def deleteFirst(self):
 		if self.head:
+			delete_node = self.head
 			self.head = self.head.next
-		return self.head	
+			return delete_node.data
+		return None	
 
 	def addLast(self, data):
 		node = self.head
 		if node is None:
 			self.head = Node(data)
-			return self.head
 
 		while node and node.next:
 			node = node.next
 
 		node.next = Node(data)
-		return self.head	
 
 	def deleteLast(self):
+		if self.size() == 1:
+			delete_node = self.head
+			self.head = None
+			return delete_node.data
 		if self.head:
 			node = self.head
 			while node.next.next:
 				node = node.next
 
+			delete_node = node.next
 			node.next = None
-		return self.head	
+			return delete_node.data
+		return None		
 
 	def printList(self):
 		node = self.head
@@ -46,4 +51,12 @@ class LinkedList:
 			node = node.next
 
 	def empty(self):
-		return self.head == None		
+		return self.head == None
+
+	def size(self):
+		count = 0
+		node = self.head
+		while node:
+			count += 1
+			node = node.next
+		return count				
