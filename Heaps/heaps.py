@@ -1,5 +1,6 @@
 
 class MinHeap:
+	
 	def __init__(self):
 		self.items = []
 
@@ -74,7 +75,44 @@ class MinHeap:
 			index = self.getParentIndex(index)
 
 	def getHeap(self):
-		return self.items		
+		return self.items
+
+
+class MaxHeap(MinHeap):
+
+	def heapifyUp(self):
+		index = len(self.items)-1
+
+		while self.hasParent(index) and self.getParent(index) < self.items[index]:
+			self.swap(self.getParentIndex(index), index)
+			index = self.getParentIndex(index)		
+
+	def heapifyDown(self):
+		index = 0
+		while self.hasLeftChild(index):
+			childIndex = self.getLeftChildIndex(index)
+			if self.hasRightChild(index) and self.getRight(index) > self.getLeft(index):
+				childIndex = self.getRightChildIndex(index)
+			if self.items[childIndex] < self.items[index]:
+				break
+			else:
+				self.swap(childIndex, index)
+				index = childIndex	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
