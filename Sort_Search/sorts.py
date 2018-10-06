@@ -51,3 +51,81 @@ def partition(arr, low, high):
 	#move pivot to proper position		
 	arr[i+1], arr[high] = arr[high], arr[i+1]
 	return i+1
+
+def mergeSort(arr, left, right):
+	if left < right:
+		mid = (left + right) // 2
+
+		mergeSort(arr, left, mid)
+		mergeSort(arr, mid+1, right)
+
+		merge(arr, left, mid, right)
+	
+
+def merge(arr, left, mid, right):
+	#two arrays to merge
+	#[left to mid] and [mid+1 to right]
+
+	l1 = mid - left + 1 #length of left array
+	l2 = right - mid #length of right array
+
+	#create temporary arrays for each list half
+	temp1 = [0] * l1
+	temp2 = [0] * l2
+	
+	#copy elements to temporary arrays
+	for i in range(l1):
+		temp1[i] = arr[i + left]
+
+	for j in range(l2):
+		temp2[j] = arr[j + mid + 1]
+
+	#track index of each temp list
+	leftIndex = 0
+	rightIndex = 0
+	#track spot in the original array
+	k = left
+
+	while leftIndex < l1 and rightIndex < l2:
+		if temp1[leftIndex] <= temp2[rightIndex]:
+			arr[k] = temp1[leftIndex]
+			leftIndex += 1
+		else:
+			arr[k] = temp2[rightIndex]
+			rightIndex += 1
+		k += 1
+	
+	#insert remaining values from list	
+	while leftIndex < l1:
+		arr[k] = temp1[leftIndex]
+		leftIndex += 1
+		k += 1
+	while rightIndex < l2:
+		arr[k] = temp2[rightIndex]
+		rightIndex += 1
+		k += 1
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
