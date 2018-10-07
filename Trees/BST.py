@@ -74,4 +74,15 @@ class BST:
 		return self.root is None
 
 	def getRoot(self):
-		return self.root									
+		return self.root
+
+	def depth(self, root):
+	    if root is None:
+	        return 0
+	    
+	    leftCount = height(root.left)
+	    rightCount = height(root.right)
+	    
+	    if leftCount > rightCount:
+	        return leftCount + 1
+	    return rightCount + 1										
