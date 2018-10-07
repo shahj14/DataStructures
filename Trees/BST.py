@@ -1,8 +1,8 @@
 class Node:
-	def __init__(self, data):
+	def __init__(self, data, left = None, right = None):
 		self.data = data
-		self.left = None
-		self.right = None
+		self.left = left
+		self.right = right
 
 class BST:
 	def __init__(self):
@@ -74,15 +74,4 @@ class BST:
 		return self.root is None
 
 	def getRoot(self):
-		return self.root
-
-	def depth(self, root):
-	    if root is None:
-	        return 0
-	    
-	    leftCount = height(root.left)
-	    rightCount = height(root.right)
-	    
-	    if leftCount > rightCount:
-	        return leftCount + 1
-	    return rightCount + 1										
+		return self.root									
