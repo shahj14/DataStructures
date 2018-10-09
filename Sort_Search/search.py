@@ -28,14 +28,14 @@ def binary_search_closest(arr, search):
 	while (low < high):
 		mid = (low + high) // 2
 
-		if arr[mid] == search:
-			return arr[mid]
+		if new_arr[mid] == search:
+			return new_arr[mid]
 		elif high - low == 1:		
-			if abs(arr[low] - search) < abs(arr[high] - search):
-				return arr[low]
+			if abs(new_arr[low] - search) < abs(new_arr[high] - search):
+				return new_arr[low]
 			else:
-				return arr[high]		
-		elif arr[mid] < search:
+				return new_arr[high]		
+		elif new_arr[mid] < search:
 			low = mid
 		else:
 			high = mid		

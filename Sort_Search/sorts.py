@@ -1,8 +1,4 @@
-
-
-#implementations of insertion, quick, and merge sorts
-
-def insertionSort(arr):
+def insertion_sort(arr):
 	new_arr = arr
 
 	#loop from the second to the last element of array
@@ -26,16 +22,16 @@ def insertionSort(arr):
 	#copy of array
 	return new_arr	
 
-def quickSort(arr, low, high):
+def quick_sort(arr, low, high):
 	#check if there is anything left to sort
 	if low < high:
 		#get partition index
 		pi = partition(arr, low, high)
 
 		#sort lower half
-		quickSort(arr, low, pi-1)
+		quick_sort(arr, low, pi-1)
 		#sort upper half
-		quickSort(arr, pi+1, high)
+		quick_sort(arr, pi+1, high)
 
 def partition(arr, low, high):
 	#pivot will be top element in array
@@ -52,12 +48,12 @@ def partition(arr, low, high):
 	arr[i+1], arr[high] = arr[high], arr[i+1]
 	return i+1
 
-def mergeSort(arr, left, right):
+def merge_sort(arr, left, right):
 	if left < right:
 		mid = (left + right) // 2
 
-		mergeSort(arr, left, mid)
-		mergeSort(arr, mid+1, right)
+		merge_sort(arr, left, mid)
+		merge_sort(arr, mid+1, right)
 
 		merge(arr, left, mid, right)
 	
