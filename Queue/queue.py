@@ -10,10 +10,14 @@ class Queue:
 		self.items.insert(0, item)
 
 	def dequeue(self):
-		return self.items.pop()
-
+		if self.items != []:
+			return self.items.pop()
+		return None
+		
 	def peek(self):
-		return self.items[-1]	
+		if self.items != []:
+			return self.items[-1]	
+		return None
 
 	def size(self):
 		return len(self.items)	

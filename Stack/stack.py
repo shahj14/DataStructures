@@ -7,11 +7,14 @@ class Stack:
 		self.list.append(item)
 
 	def pop(self):
-		return self.list.pop()
+		if self.list != []:
+			return self.list.pop()
+		return None	
 
 	def peek(self):
-		if !self.empty():
+		if self.list != []:
 			return self.list[-1]
+		return None	
 
 	def size(self):
 		return len(self.list)
