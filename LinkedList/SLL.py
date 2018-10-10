@@ -23,11 +23,11 @@ class LinkedList:
 		node = self.head
 		if node is None:
 			self.head = Node(data)
+		else:	
+			while node and node.next:
+				node = node.next
 
-		while node and node.next:
-			node = node.next
-
-		node.next = Node(data)
+			node.next = Node(data)
 
 	def deleteLast(self):
 		if self.size() == 1:
