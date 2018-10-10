@@ -1,4 +1,3 @@
-
 class MinHeap:
 	
 	def __init__(self):
@@ -65,7 +64,9 @@ class MinHeap:
 			else:
 				self.swap(childIndex, index)
 				index = childIndex		
-		
+	
+	def size(self):
+		return len(self.items)
 
 	def heapifyUp(self):
 		index = len(self.items)-1
